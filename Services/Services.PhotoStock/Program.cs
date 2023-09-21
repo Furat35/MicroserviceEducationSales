@@ -13,7 +13,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
         options.Authority = builder.Configuration["IdentityServerURL"];
-        options.Audience = "photo_stock_catalog";
+        options.Audience = "resource_photo_stock";
     });
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

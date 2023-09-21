@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Services.Catalog.Dtos;
 using Services.Catalog.Services;
-using Shared.BaseController;
+using Shared.ControllerBases;
 
 namespace Services.Catalog.Controllers
 {

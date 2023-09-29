@@ -1,3 +1,6 @@
+Gateway 
+	-5000
+
 Services
 	-CatalogAPI => 5011
 	-PhotoStockAPI => 5012
@@ -8,3 +11,4 @@ Services
 
 IdentityServer 
 	- IdentityAPI => 5001
+

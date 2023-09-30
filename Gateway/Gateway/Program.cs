@@ -11,7 +11,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         options.Authority = builder.Configuration["IdentityServerURL"];
         options.Audience = "resource_gateway";
     });
-
 builder.Services.AddOcelot();
 builder.Host.ConfigureAppConfiguration((hostingContext, config) =>
 {

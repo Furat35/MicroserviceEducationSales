@@ -28,7 +28,8 @@ namespace Services.Discount.Services
 
         public async Task<Response<Models.Discount>> GetByCodeAndUserId(string code, string userId)
         {
-            var discounts = await _dbConnection.QueryAsync<Models.Discount>("Select * from discount where userid=@UserId and code=@Code", new { UserId = userId, Code = code });
+            var discounts = await _dbConnection.QueryAsync<Models.Discount>("Select * from discount where code=@Code", new { Code = code });
+            //var discounts = await _dbConnection.QueryAsync<Models.Discount>("Select * from discount where userid=@UserId and code=@Code", new { UserId = userId, Code = code });
             var hasDiscount = discounts.FirstOrDefault();
             return DiscountNotFound(hasDiscount);
         }
@@ -61,7 +62,7 @@ namespace Services.Discount.Services
         private Response<Models.Discount> DiscountNotFound(Models.Discount discount)
         {
             return discount != null
-              ? Response<Models.Discount>.Success(204)
+              ? Response<Models.Discount>.Success(discount, 200)
               : Response<Models.Discount>.Fail("Discount not found.", 404);
         }
     }

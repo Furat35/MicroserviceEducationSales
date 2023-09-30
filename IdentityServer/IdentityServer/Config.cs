@@ -57,7 +57,7 @@ namespace IdentityServer
                     AllowedScopes = { "catalog_fullpermission", "photo_stock_fullpermission", IdentityServerConstants.LocalApi.ScopeName }
                 },
                  new Client
-                {
+                 {
                     ClientName = "Asp.Net Core MVC",
                     ClientId = "WebMvcClientForUser",
                     AllowOfflineAccess = true,
@@ -71,7 +71,7 @@ namespace IdentityServer
                     RefreshTokenExpiration = TokenExpiration.Absolute,
                     AbsoluteRefreshTokenLifetime = (int)(DateTime.Now.AddDays(60) - DateTime.Now).TotalSeconds,
                     RefreshTokenUsage = TokenUsage.ReUse
-                }
+                 }
             };
     }
 }

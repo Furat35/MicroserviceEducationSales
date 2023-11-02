@@ -11,6 +11,7 @@ namespace Shared.Dtos
         [JsonIgnore]
         public bool IsSuccessful { get; set; }
         public List<string> Errors { get; set; }
+
         //static factory method
         public static Response<T> Success(T data, int statusCode)
         {

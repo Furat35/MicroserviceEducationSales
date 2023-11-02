@@ -1,7 +1,7 @@
 ﻿using Services.Basket.Dtos;
 using Shared.Dtos;
 
-namespace Services.Basket.Services
+namespace Services.Basket.Services.Interfaces
 {
     public interface IBasketService
     {

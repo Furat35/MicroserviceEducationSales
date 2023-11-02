@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Services.Catalog.Dtos;
-using Services.Catalog.Services;
+using Services.Catalog.Services.Interfaces;
 using Shared.ControllerBases;
 
 namespace Services.Catalog.Controllers

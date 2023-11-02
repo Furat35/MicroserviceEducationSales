@@ -54,7 +54,7 @@ namespace IdentityServer
                     ClientId = "WebMvcClient",
                     ClientSecrets = { new Secret("secret".Sha256()) },
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
-                    AllowedScopes = { "catalog_fullpermission", "photo_stock_fullpermission", IdentityServerConstants.LocalApi.ScopeName }
+                    AllowedScopes = { "catalog_fullpermission", "photo_stock_fullpermission", "gateway_fullpermission", IdentityServerConstants.LocalApi.ScopeName }
                 },
                  new Client
                  {
@@ -63,8 +63,8 @@ namespace IdentityServer
                     AllowOfflineAccess = true,
                     ClientSecrets = { new Secret("secret".Sha256()) },
                     AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
-                    AllowedScopes = { "basket_fullpermission", "discount_fullpermission", "order_fullpermission", "fakePayment_fullpermission",
-                         "gateway_fullpermission", IdentityServerConstants.StandardScopes.Email, IdentityServerConstants.StandardScopes.OpenId,
+                    AllowedScopes = { "basket_fullpermission", "catalog_fullpermission", "discount_fullpermission", "order_fullpermission", "fakePayment_fullpermission",
+                         "gateway_fullpermission", "photo_stock_fullpermission", IdentityServerConstants.StandardScopes.Email, IdentityServerConstants.StandardScopes.OpenId,
                          IdentityServerConstants.StandardScopes.Profile, IdentityServerConstants.StandardScopes.OfflineAccess,
                          IdentityServerConstants.LocalApi.ScopeName, "roles" },
                     AccessTokenLifetime = 1*60*60,

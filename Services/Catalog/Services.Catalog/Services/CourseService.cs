@@ -2,6 +2,7 @@
 using MongoDB.Driver;
 using Services.Catalog.Dtos;
 using Services.Catalog.Models;
+using Services.Catalog.Services.Interfaces;
 using Services.Catalog.Settings;
 using Shared.Dtos;
 
@@ -47,7 +48,7 @@ namespace Services.Catalog.Services
             var courses = await _courseCollection.Find(course => course.UserId == userId).ToListAsync();
             if (courses.Any())
                 foreach (var course in courses)
-                    course.Category = await _categoryCollection.Find(_ => _.Id == course.Id).FirstAsync();
+                    course.Category = await _categoryCollection.Find(_ => _.Id == course.CategoryId).FirstAsync();
             else
                 courses = new List<Course>();
             return Response<List<CourseDto>>.Success(_mapper.Map<List<CourseDto>>(courses), 200);

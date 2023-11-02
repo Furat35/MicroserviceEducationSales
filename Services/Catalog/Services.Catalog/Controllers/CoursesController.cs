@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Services.Catalog.Dtos;
-using Services.Catalog.Services;
+using Services.Catalog.Services.Interfaces;
 using Shared.ControllerBases;
 
 namespace Services.Catalog.Controllers
@@ -30,7 +30,7 @@ namespace Services.Catalog.Controllers
             return CreateActionResultInstance(response);
         }
 
-        [HttpGet("GetAllByuserId/{userId}")]
+        [HttpGet("GetAllByUserId/{userId}")]
         public async Task<IActionResult> GetAllByUserId(string userId)
         {
             var response = await _courseService.GetAllByUserId(userId);

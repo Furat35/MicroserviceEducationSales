@@ -1,7 +1,7 @@
 ﻿using Services.Catalog.Dtos;
 using Shared.Dtos;
 
-namespace Services.Catalog.Services
+namespace Services.Catalog.Services.Interfaces
 {
     public interface ICourseService
     {

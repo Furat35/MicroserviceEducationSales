@@ -1,0 +1,24 @@
+﻿@model List<Web.Models.Catalogs.CourseViewModel>;
+
+@if (Model.Any())
+{
+    <div class="row">
+        @foreach (var course in Model)
+        {
+            <div class="col-3 mb-3">
+                <div class="card" style="height:410px">
+                    <img src="@course.StockPictureUrl" class="card-img-top" alt="...">
+                    <div class="card-body" style="position: relative;">
+                        <h5 class="card-title">@course.Name</h5>
+                        <div class="badge bg-primary">Kategori : @course.Name</div>
+                        <p class="card-text">@(course.Description.Length > 70 ? @course.Description.Substring(0, 70) : @course.Description)</p>
+                        <h4>@course.Price TL</h4>
+                        <div>
+                            <a class="btn btn-success" style="position: absolute; bottom:20px" asp-controller="Home" asp-action="Detail" asp-route-id="@course.Id">Detay</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

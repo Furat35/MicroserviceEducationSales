@@ -2,6 +2,7 @@
 using MongoDB.Driver;
 using Services.Catalog.Dtos;
 using Services.Catalog.Models;
+using Services.Catalog.Services.Interfaces;
 using Services.Catalog.Settings;
 using Shared.Dtos;
 

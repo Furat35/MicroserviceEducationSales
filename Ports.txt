@@ -10,5 +10,8 @@ Services
 	-FakePaymentAPI => 5016
 
 IdentityServer 
-	- IdentityAPI => 5001
+	-IdentityAPI => 5001
+
+Frontends
+	-Web => 5010
 

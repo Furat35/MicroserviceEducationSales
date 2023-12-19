@@ -1,4 +1,6 @@
-﻿namespace Web.Models.FakePayments
+﻿using Web.Models.Orders;
+
+namespace Web.Models.FakePayments
 {
     public class PaymentInfoInput
     {
@@ -11,5 +13,7 @@
         public string CVV { get; set; }
 
         public decimal TotalPrice { get; set; }
+
+        public OrderCreateInput Order { get; set; }
     }
 }

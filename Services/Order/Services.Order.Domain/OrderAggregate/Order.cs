@@ -16,7 +16,7 @@ namespace Services.Order.Domain.OrderAggregate
 
         }
 
-        public Order(Address address, string buyerId)
+        public Order(string buyerId, Address address)
         {
             CreatedDate = DateTime.Now;
             Address = address;

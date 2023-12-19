@@ -1,15 +1,27 @@
+using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Options;
 using Services.Catalog.Services;
 using Services.Catalog.Services.Interfaces;
-using Services.Catalog.Settings;
+using Services.Catalog.Services.Settings;
 using System.IdentityModel.Tokens.Jwt;
 using System.Reflection;
-
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddMassTransit(configure =>
+{
+    configure.UsingRabbitMq((context, configurator) =>
+    {
+        configurator.Host(builder.Configuration["RabbitMQUrl"], "/", host =>
+        {
+            host.Username("guest");
+            host.Password("guest");
+        });
+    });
+});
+builder.Services.AddMassTransitHostedService();
 builder.Services.AddControllers(opt =>
 {
     opt.Filters.Add(new AuthorizeFilter());

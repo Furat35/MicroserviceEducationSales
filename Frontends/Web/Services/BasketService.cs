@@ -22,8 +22,10 @@ namespace Web.Services
             {
                 basket = new BasketViewModel();
                 basket.BasketItems.Add(basketItemViewModel);
+                await SaveOrUpdate(basket);
+                return;
             }
-            if (!basket.BasketItems.Any(_ => _.CourseId == basketItemViewModel.CourseId))
+            if (basket.BasketItems.Any(_ => _.CourseId == basketItemViewModel.CourseId))
                 return;
             basket.BasketItems.Add(basketItemViewModel);
             await SaveOrUpdate(basket);

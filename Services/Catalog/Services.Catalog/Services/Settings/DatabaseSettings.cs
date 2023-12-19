@@ -1,4 +1,4 @@
-﻿namespace Services.Catalog.Settings
+﻿namespace Services.Catalog.Services.Settings
 {
     public class DatabaseSettings : IDatabaseSettings
     {

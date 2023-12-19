@@ -39,7 +39,7 @@
                             <th colspan="2">@Model.TotalPrice TL</th>
                         </tr>
                     </table>
-                    <form asp-controller="Baskets" asp-action="ApplyDiscount">
+                    <form asp-controller="Baskets" asp-action="ApplyDiscount" method="post">
                         @if (Model.HasDiscount)
                         {
                             <div class="alert alert-success">
@@ -47,20 +47,15 @@
                                 <a asp-controller="Baskets" asp-action="CancelApplyDiscount">(iptal et)</a>
                             </div>
                         }
-                        @if (TempData["discountStatus"] != null)
-                        {
-                            <div class="text-danger">
-                                İndirim kodu geçersiz
-                            </div>
-                        }
-                        <div class="input-group mb-3">
+                        <div class="input-group mb-2">
                             <input type="text" name="DiscountApplyInput.Code" class="form-control">
                             <button class="btn btn-outline-secondary" type="submit">Uygula</button>
                             <div asp-validation-summary="All"></div>
+                           
                         </div>
                         @if (TempData["discountStatus"] != null)
                         {
-                            <div class="text-danger">
+                            <div class="text-danger mb-3">
                                 İndirim kodu geçersiz
                             </div>
                         }

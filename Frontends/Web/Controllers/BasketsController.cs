@@ -40,7 +40,7 @@ namespace Web.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [HttpGet]
+        [HttpPost]
         public async Task<IActionResult> ApplyDiscount(DiscountApplyInput discountApplyInput)
         {
             if (!ModelState.IsValid)
@@ -49,7 +49,8 @@ namespace Web.Controllers
                 return RedirectToAction(nameof(Index));
             }
             var discountStatus = await _basketService.ApplyDiscount(discountApplyInput.Code);
-            TempData["discountStatus"] = discountStatus;
+            if (!discountStatus)
+                TempData["discountStatus"] = "Error";
             return RedirectToAction(nameof(Index));
         }
 
